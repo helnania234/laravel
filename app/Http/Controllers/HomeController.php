@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Penjualan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,16 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('welcome', ['title' => 'Home']);
     }
     public function pembelian()
     {
-        return view('pembelian');
+        return view('pembelian', ['title' => 'Pembelian']);
     }
 
     public function orang()
     {
-        return view('tambah');
+        return view('tambah', ['title' => 'Tambah Pembelian']);
     }
 
     public function store(Request $req)
@@ -43,17 +44,18 @@ class HomeController extends Controller
             "umur" => $req->umur,
             "alamat" => $req->alamat
         ];
-        $post = Book::insert($data);
+        $post = Penjualan::insert($data);
 
         if ($post) {
             return redirect()->route('books');
         }
     }
 
-    public function books()
+    public function orangs()
     {
         $data = [
-            'books' => Book::all(),
+            'orang' => Penjualan::all(),
+            'title' => "Orang"
         ];
 
         return View('data', $data);
@@ -61,7 +63,7 @@ class HomeController extends Controller
 
     function delete($id)
     {
-        $del = Book::where('id', $id)->delete();
+        $del = Penjualan::where('id', $id)->delete();
         if ($del) {
             return redirect()->route('books')->with('pesan', "Data Berhasil dihapus!!");
         }

@@ -19,9 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// admin
+Route::get('admin/home', 'BookController@index')->name('admin.list');
+Route::get('admin/delete/{id}', 'BookController@destroy')->name('admin.delete');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pembelian', 'HomeController@pembelian')->name('pembelian');
 Route::get('/pembelian/tambah', 'HomeController@orang')->name('tambah');
 Route::post('/pembelian/store', 'HomeController@store')->name('store');
-Route::get('/orang', 'HomeController@books')->name('books');
+Route::get('/orang', 'HomeController@orangs')->name('orang');
 Route::get('/delete/{id}', 'HomeController@delete')->name('delete');

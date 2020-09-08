@@ -18,6 +18,7 @@ class CreateBookTable extends Migration
             $table->integer('uid');
             $table->string('nama');
             $table->bigInteger('price')->default('0');
+            $table->string('img')->nullable();
             $table->string('deskripsi');
             $table->timestamps();
         });
