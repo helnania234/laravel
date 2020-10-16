@@ -65,7 +65,7 @@
             <div class="col-md-6">
                 <div class="row mb-5">
                     <div class="col-md-6 mb-3 mb-md-0">
-                        <button class="btn btn-primary btn-sm btn-block">Tambah Book</button>
+                        <button class="btn btn-primary btn-sm btn-block">Add Book</button>
                     </div>
                 </div>
             </div>
